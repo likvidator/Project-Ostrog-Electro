@@ -112,15 +112,15 @@
 		} 
 	}
 
-		$filename = 'Ãðàôèê ïðîâåðêè ó÷åòîâ'; 
+		$filename = 'ÃƒÃ°Ã Ã´Ã¨Ãª Ã¯Ã°Ã®Ã¢Ã¥Ã°ÃªÃ¨ Ã³Ã·Ã¥Ã²Ã®Ã¢'; 
 		$excel = new ExportToExcel(); 
 		$row=sched_inspect2($date);
-		$excel->InsertText('Ãðàôèê ïðîâåðêè ó÷åòîâ');
+		$excel->InsertText('ÃƒÃ°Ã Ã´Ã¨Ãª Ã¯Ã°Ã®Ã¢Ã¥Ã°ÃªÃ¨ Ã³Ã·Ã¥Ã²Ã®Ã¢ Ã­Ã ');
 		$excel->InsertText($date);
 		$excel->GoNewLine();
-		$excel->InsertText('Íàèìåíîâàíèå ïîòðåáèòåëÿ');
-		$excel->InsertText('Òåëåôîí');
-		$excel->InsertText('Ëèöåâîé ñ÷åò');
+		$excel->InsertText('ÃÃ Ã¨Ã¬Ã¥Ã­Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã¯Ã®Ã²Ã°Ã¥Ã¡Ã¨Ã²Ã¥Ã«Ã¿');
+		$excel->InsertText('Ã’Ã¥Ã«Ã¥Ã´Ã®Ã­');
+		$excel->InsertText('Ã‹Ã¨Ã¶Ã¥Ã¢Ã®Ã© Ã±Ã·Ã¥Ã²');
 		$excel->GoNewLine();
 		While($row2=mysqli_fetch_assoc($row))
 		{

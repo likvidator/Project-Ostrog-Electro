@@ -5,7 +5,7 @@
 		$connect = get_connect();
 		if (!empty($id_cons))
 		{
-			mysqli_query($connect,"delete from Consumer where id_consumer=".$id_cons.";");
+			mysqli_query($connect,"delete from consumer where id_consumer=".$id_cons.";");
 
 			return 'Del_cons';
 	
@@ -24,7 +24,7 @@
 		$connect = get_connect();
 		if (!empty($id_cons))
 		{
-			mysqli_query($connect,"delete from Object where id_object=".$id_cons.";");
+			mysqli_query($connect,"delete from object where id_object=".$id_cons.";");
 
 			return 'Del_obj';
 	
@@ -43,7 +43,7 @@
 		$connect = get_connect();
 		if (!empty($id_count) AND !empty($id_obj))
 		{
-			mysqli_query($connect,"delete from Counter where Obj_Cons_id_count=".$id_count." AND Obj_id_count=".$id_obj.";");
+			mysqli_query($connect,"delete from counter where Obj_Cons_id_count=".$id_count." AND Obj_id_count=".$id_obj.";");
 
 			return 'Del_counter';
 	
@@ -62,7 +62,7 @@
 		$connect = get_connect();
 		if (!empty($id_dim) AND !empty($id_obj))
 		{
-			mysqli_query($connect,"delete from Dimension where Obj_Cons_id_dimen=".$id_dim." AND Obj_id_dimen=".$id_obj.";");
+			mysqli_query($connect,"delete from dimension where Obj_Cons_id_dimen=".$id_dim." AND Obj_id_dimen=".$id_obj.";");
 
 			return 'Del_dim';
 	
@@ -81,7 +81,7 @@
 		$connect = get_connect();
 		if (!empty($id_tr_cur) AND !empty($id_obj))
 		{
-			mysqli_query($connect,"delete from Transfor_cur where Obj_Cons_id_tr_cur=".$id_tr_cur." AND Obj_id_tr_cur=".$id_obj.";");
+			mysqli_query($connect,"delete from transfor_cur where Obj_Cons_id_tr_cur=".$id_tr_cur." AND Obj_id_tr_cur=".$id_obj.";");
 
 			return 'Del_tr_cur';
 	
@@ -101,7 +101,7 @@
 		$connect = get_connect();
 		if (!empty($id_tr_vol))
 		{
-			mysqli_query($connect,"delete from Transfor_vol where id_tr_vol=".$id_tr_vol.";");
+			mysqli_query($connect,"delete from transfor_vol where id_tr_vol=".$id_tr_vol.";");
 
 			return 'Del';
 	
@@ -150,7 +150,7 @@
 		$connect = get_connect();
 		if(!empty($id_change))
 		{
-			mysqli_query($connect,"delete from Change_count where id_change=".$id_change.";");
+			mysqli_query($connect,"delete from change_count where id_change=".$id_change.";");
 			return 'Del';
 
 			//echo 'delete from Change_count where id_change=".$id_change.";';
@@ -173,24 +173,24 @@
 		{
 			if($type_pr==1)
 			{
-				mysqli_query($connect,"delete from All_dates where Date_list_id=".$id_date_list." AND Counter_id_count=".$id_all.";");
-				mysqli_query($connect,"delete from Date_list where id_Date=".$id_date_list.";");
+				mysqli_query($connect,"delete from all_dates where Date_list_id=".$id_date_list." AND Counter_id_count=".$id_all.";");
+				mysqli_query($connect,"delete from date_list where id_Date=".$id_date_list.";");
 				// echo "delete from All_dates where Date_list_id=".$id_date_list." AND Counter_id_count=".$id_all.";";
 			return 'Del';
 
 			}
 			if($type_pr==2)
 			{
-				mysqli_query($connect,"delete from All_dates where Date_list_id=".$id_date_list." AND Transfor_cur_id=".$id_all.";");
-				mysqli_query($connect,"delete from Date_list where id_Date=".$id_date_list.";");
+				mysqli_query($connect,"delete from all_dates where Date_list_id=".$id_date_list." AND Transfor_cur_id=".$id_all.";");
+				mysqli_query($connect,"delete from date_list where id_Date=".$id_date_list.";");
 				// echo "delete from All_dates where Date_list_id=".$id_date_list." AND Transfor_cur_id=".$id_all.";";
 			return 'Del';
 
 			}
 			if($type_pr==3)
 			{
-				mysqli_query($connect,"delete from All_dates where Date_list_id=".$id_date_list." AND Transfor_vol_id=".$id_all.";");
-				mysqli_query($connect,"delete from Date_list where id_Date=".$id_date_list.";");
+				mysqli_query($connect,"delete from all_dates where Date_list_id=".$id_date_list." AND Transfor_vol_id=".$id_all.";");
+				mysqli_query($connect,"delete from date_list where id_Date=".$id_date_list.";");
 				// echo "delete from All_dates where Date_list_id=".$id_date_list." AND Transfor_vol_id=".$id_all.";";
 			return 'Del';
 

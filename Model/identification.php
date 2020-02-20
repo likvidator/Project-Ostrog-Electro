@@ -9,7 +9,7 @@
 			$login = mysqli_real_escape_string($connect,htmlspecialchars($user_value));
 			$password = mysqli_real_escape_string($connect,htmlspecialchars($password_value));
 			$pass=password_hash($password,PASSWORD_BCRYPT);
-			$row = mysqli_fetch_array(mysqli_query($connect,"select * from User where Name='".$login."';"), MYSQLI_NUM);
+			$row = mysqli_fetch_array(mysqli_query($connect,"select * from user where Name='".$login."';"), MYSQLI_NUM);
 				
 			if (count($row)!=0)
 			{
@@ -18,7 +18,7 @@
 			}
 			else
 			{
-				mysqli_query($connect,"INSERT INTO User (Name, Password) VALUES ('$login','$pass');");
+				mysqli_query($connect,"INSERT INTO user (Name, Password) VALUES ('$login','$pass');");
 
 		  		return 'Zar';//'Вы успешно зарегистрированы!';
 	

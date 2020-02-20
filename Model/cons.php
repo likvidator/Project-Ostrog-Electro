@@ -22,19 +22,19 @@
 				
 					mysqli_error($connect);
 					$question=(mysqli_query($connect,"select * from consumer where Name_consumer like '%$Text_search%'  AND Face='$id_face' order by (Personal_account+0); "));
-					// echo "select * from consumer where Name_consumer like '%$Text_search%'  AND Face='$id_face' order by (Personal_account+0);";
+					echo "select * from consumer where Name_consumer like '%$Text_search%'  AND Face='$id_face' order by (Personal_account+0);";
 					
 				
 				}
 				if ($search==2)
 				{
-					$question=(mysqli_query($connect,"select t1.id_consumer,t1.Name_consumer, t1.Phone_consumer, t1.Personal_account, t1.Face from Consumer AS t1 join Counter AS t2 ON t1.id_consumer=t2.Obj_Cons_id_count where t2.Number_count like '%$Text_search%'  AND t1.Face='$id_face' order by (Personal_account+0);"));
+					$question=(mysqli_query($connect,"select t1.id_consumer,t1.Name_consumer, t1.Phone_consumer, t1.Personal_account, t1.Face from consumer AS t1 join Counter AS t2 ON t1.id_consumer=t2.Obj_Cons_id_count where t2.Number_count like '%$Text_search%'  AND t1.Face='$id_face' order by (Personal_account+0);"));
 					
 				}
 				if ($search==3)
 				{
 
-					$question=(mysqli_query($connect, " select * from Consumer where Personal_account like '%Text_search%' AND Face='$id_face' order by (Personal_account+0); "));
+					$question=(mysqli_query($connect, " select * from consumer where Personal_account like '%Text_search%' AND Face='$id_face' order by (Personal_account+0); "));
 					
 				}
 
@@ -60,12 +60,12 @@
 				}
 				if ($search==2)
 				{
-					$question=(mysqli_query($connect,"select t1.id_consumer,t1.Name_consumer, t1.Phone_consumer, t1.Personal_account, t1.Face from Consumer AS t1 join Counter AS t2 ON t1.id_consumer=t2.Obj_Cons_id_count where t2.Number_count like '%$Text_search%' order by (Personal_account+0);"));
+					$question=(mysqli_query($connect,"select t1.id_consumer,t1.Name_consumer, t1.Phone_consumer, t1.Personal_account, t1.Face from consumer AS t1 join Counter AS t2 ON t1.id_consumer=t2.Obj_Cons_id_count where t2.Number_count like '%$Text_search%' order by (Personal_account+0);"));
 				}
 				if ($search==3)
 				{
 
-					$question=(mysqli_query($connect, "select * from Consumer where Personal_account like '%$Text_search%' order by (Personal_account+0); "));
+					$question=(mysqli_query($connect, "select * from consumer where Personal_account like '%$Text_search%' order by (Personal_account+0); "));
 					// echo "select * from Consumer where Personal_account like '%$Text_search%' order by (Personal_account+0);";
 				}
 
@@ -107,8 +107,10 @@
 	{
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
-		$object=(mysqli_query($connect,"select id_object,Owner_FIO,Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class,Date_instrumental_check
-			FROM Object WHERE Obj_Cons_id=".$user_id.";"));
+		$object=(mysqli_query($connect,"select id_object,Owner_FIO,Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class 
+			FROM object WHERE Obj_Cons_id=".$user_id.";"));
+			//echo "select id_object,Owner_FIO,Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class 
+			//FROM Object WHERE Obj_Cons_id=".$user_id.";";
 		$array_object= array();
 		$i = 0;
 		while ($row1 = mysqli_fetch_assoc($object)) 
@@ -129,7 +131,7 @@
 		$user=0;
 	if(!empty($user_id ))
 	{
-		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM Object WHERE Obj_Cons_id ='$user_id';"), MYSQLI_NUM);
+		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM object WHERE Obj_Cons_id ='$user_id';"), MYSQLI_NUM);
 		if (count($row)!=0)
 		{
 		 $user=1;
@@ -166,9 +168,10 @@
 	{
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
-		$counter=(mysqli_query($connect,"Select id_count,Type_count, Mark_count,Number_count,Year_release_count,Class_accur_count,Kol_plomb_gospr,Kol_holog_stick,Plomb_netw_org,Antimag_plomb,Plomb_shu,Other_places_count from home.Counter WHERE Obj_id_count=".$id_obj." AND Obj_Cons_id_count=".$user_id.";"));
+		$counter=(mysqli_query($connect,"Select id_count,Type_count, Mark_count,Number_count,Year_release_count,Class_accur_count,Kol_plomb_gospr,Kol_holog_stick,Plomb_netw_org,Antimag_plomb,Plomb_shu,Other_places_count from counter WHERE Obj_id_count=".$id_obj." AND Obj_Cons_id_count=".$user_id.";"));
 
-		
+		// echo "Select Type_count, Mark_count,Year_release_count,Class_accur_count,Date_gospr_count,Date_next_pr_count,Kol_plomb_gospr,Kol_holog_stick,Plomb_netw_org,Antimag_plomb,Plomb_shu,Other_places_count from home.Counter WHERE Obj_id_count=".$id_obj." AND Obj_Cons_id_count=".$user_id.";";
+
 
 		$array_count= array();
 		$i = 0;
@@ -188,7 +191,7 @@
 
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
-		$dim=(mysqli_query($connect,"Select Date_dimen, Alter_phase,Load_fa,Load_fb,Load_fc,Cos_fi,Kol_turn_disk,Power_consum from home.Dimension WHERE Obj_id_dimen=".$id_obj." AND Obj_Cons_id_dimen=".$user_id.";"));
+		$dim=(mysqli_query($connect,"Select Date_dimen, Alter_phase,Load_fa,Load_fb,Load_fc,Cos_fi,Kol_turn_disk,Power_consum from dimension WHERE Obj_id_dimen=".$id_obj." AND Obj_Cons_id_dimen=".$user_id.";"));
 
 		$array_dim= array();
 		$i = 0;
@@ -208,7 +211,7 @@
 	{
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
-		$tr_cur=(mysqli_query($connect,"Select id_tr_cur,Type_tr_cur,Mark_tr_cur,Denomin_tr_cur,Year_release_tr_cur,Num_tr_cur_fa,Num_tr_cur_fb,Num_tr_cur_fc from home.Transfor_cur WHERE Obj_id_tr_cur=".$id_obj." AND Obj_Cons_id_tr_cur=".$user_id.";"));
+		$tr_cur=(mysqli_query($connect,"Select id_tr_cur,Type_tr_cur,Mark_tr_cur,Denomin_tr_cur,Year_release_tr_cur,Num_tr_cur_fa,Num_tr_cur_fb,Num_tr_cur_fc from transfor_cur WHERE Obj_id_tr_cur=".$id_obj." AND Obj_Cons_id_tr_cur=".$user_id.";"));
 
 		$array_tr_cur= array();
 		$i = 0;
@@ -229,7 +232,7 @@
 	{
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
-		$tr_vol=(mysqli_query($connect," Select id_tr_vol,Type_tr_vol,Mark_tr_vol,Denomin_tr_vol,Plomb_tr_vol from home.Transfor_vol WHERE Object_id_tr_vol=".$id_obj." AND Cons_id_obj_tr_vol=".$user_id.";"));
+		$tr_vol=(mysqli_query($connect," Select id_tr_vol,Type_tr_vol,Mark_tr_vol,Denomin_tr_vol,Plomb_tr_vol from transfor_vol WHERE Object_id_tr_vol=".$id_obj." AND Cons_id_obj_tr_vol=".$user_id.";"));
 		$array_tr_vol= array();
 		$i = 0;
 		while ($row = mysqli_fetch_assoc($tr_vol)) 
@@ -248,7 +251,7 @@
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
 
-		$plombs=(mysqli_query($connect,"Select t1.Phase,t2.id_plomb,t2.L1,t2.L2,t2.I1,t2.I2,t2.Other_places_plomb from Phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur.";"));
+		$plombs=(mysqli_query($connect,"Select t1.Phase,t2.id_plomb,t2.L1,t2.L2,t2.I1,t2.I2,t2.Other_places_plomb from phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur.";"));
 		
 
 		$array_pl= array();
@@ -271,7 +274,7 @@
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
 
-		$change=(mysqli_query($connect,"Select id_change,Date_change,Cause_change,FIO_change,Nomber_old,Nomber_new FROM home.Change_count WHERE Counter_id_count=".$id_count.";"));
+		$change=(mysqli_query($connect,"Select id_change,Date_change,Cause_change,FIO_change,Nomber_old,Nomber_new FROM change_count WHERE Counter_id_count=".$id_count.";"));
 		$array_change= array();
 		$i = 0;
 		while ($row = mysqli_fetch_assoc($change)) 
@@ -293,20 +296,20 @@
 		{
 			if ($type==1)
 			{
-				$result=(mysqli_query($connect,"select t3.id_Type,t1.Date_list_id,t1.Conclusio,t1.Notes,t2.Date_l,t3.Type from All_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type where Counter_id_count=".$id_reg.";"));
+				$result=(mysqli_query($connect,"select t3.id_Type,t1.Date_list_id,t1.Conclusio,t1.Notes,t2.Date_l,t3.Type from all_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type where Counter_id_count=".$id_reg.";"));
 
 		
 
 			}
 			if ($type==2)
 			{
-				$result=(mysqli_query($connect,"select t3.id_Type, t1.Date_list_id,t1.Conclusio,t1.Notes,t2.Date_l,t3.Type from All_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type where Transfor_cur_id=".$id_reg.";"));
+				$result=(mysqli_query($connect,"select t3.id_Type, t1.Date_list_id,t1.Conclusio,t1.Notes,t2.Date_l,t3.Type from all_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type where Transfor_cur_id=".$id_reg.";"));
 				
 
 			}
 			if ($type==3)
 			{
-				$result=(mysqli_query($connect,"select t3.id_Type,t1.Date_list_id,t1.Conclusio,t1.Notes,t2.Date_l,t3.Type from All_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type where Transfor_vol_id=".$id_reg.";"));
+				$result=(mysqli_query($connect,"select t3.id_Type,t1.Date_list_id,t1.Conclusio,t1.Notes,t2.Date_l,t3.Type from all_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type where Transfor_vol_id=".$id_reg.";"));
 				;
 
 			}
@@ -331,7 +334,7 @@
 		$user=0;
 	if(!empty($id_obj) AND !empty($user_id))
 	{
-		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  Counter WHERE  Obj_id_count=".$id_obj." AND Obj_Cons_id_count=".$user_id.";"), MYSQLI_NUM);
+		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  counter WHERE  Obj_id_count=".$id_obj." AND Obj_Cons_id_count=".$user_id.";"), MYSQLI_NUM);
 		if (count($row)!=0)
 		{
 		 $user=1;
@@ -353,7 +356,7 @@
 
 		if(!empty($id_obj) AND !empty($user_id))
 	{
-		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  Dimension WHERE  Obj_id_dimen=".$id_obj." AND Obj_Cons_id_dimen=".$user_id.";"), MYSQLI_NUM);
+		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  dimension WHERE  Obj_id_dimen=".$id_obj." AND Obj_Cons_id_dimen=".$user_id.";"), MYSQLI_NUM);
 		if (count($row)!=0)
 		{
 		 $user=1;
@@ -375,7 +378,7 @@
 
 		if(!empty($id_obj) AND !empty($user_id))
 	{
-		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  Transfor_cur WHERE  Obj_id_tr_cur=".$id_obj." AND Obj_Cons_id_tr_cur=".$user_id.";"), MYSQLI_NUM);
+		$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  transfor_cur WHERE  Obj_id_tr_cur=".$id_obj." AND Obj_Cons_id_tr_cur=".$user_id.";"), MYSQLI_NUM);
 
 	
 
@@ -399,7 +402,7 @@
 		$user=0;
 		if(!empty($id_tr_cur))
 		{
-			$row = mysqli_fetch_array(mysqli_query($connect,"SELECT COUNT(Phase_id_plomb) FROM  Phase_tr_cur WHERE  Transfor_cur_id_phase=".$id_tr_cur.";"), MYSQLI_NUM);
+			$row = mysqli_fetch_array(mysqli_query($connect,"SELECT COUNT(Phase_id_plomb) FROM  phase_tr_cur WHERE  Transfor_cur_id_phase=".$id_tr_cur.";"), MYSQLI_NUM);
 		
 			if ($row[0]!=0)
 			{
@@ -425,7 +428,7 @@
 		$user=0;
 		if(!empty($id_tr_vol))
 		{
-			$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  Transfor_vol WHERE  id_tr_vol=".$id_tr_vol.";"), MYSQLI_NUM);
+			$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  transfor_vol WHERE  id_tr_vol=".$id_tr_vol.";"), MYSQLI_NUM);
 			
 			
 			if (count($row)!=0)
@@ -451,7 +454,7 @@
 
 		if(!empty($id_count))
 		{
-			$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  Change_count WHERE  Counter_id_count=".$id_count.";"), MYSQLI_NUM);
+			$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  change_count WHERE  Counter_id_count=".$id_count.";"), MYSQLI_NUM);
 			if (count($row)!=0)
 			{
 		 		$user=1;
@@ -473,13 +476,13 @@
 		{
 			if($type_pr==1)
 			{
-				$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  All_dates WHERE  Counter_id_count=".$id_list.";"), MYSQLI_NUM);
+				$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  all_dates WHERE  Counter_id_count=".$id_list.";"), MYSQLI_NUM);
 				//echo "SELECT * FROM  All_dates WHERE  Counter_id_count=".$id_list.";";
 				// var_dump($row);
 			}
 			if($type_pr==2)
 			{
-				$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  All_dates WHERE  Transfor_cur_id=".$id_list.";"), MYSQLI_NUM);
+				$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  all_dates WHERE  Transfor_cur_id=".$id_list.";"), MYSQLI_NUM);
 
 				// echo "SELECT * FROM  All_dates WHERE  Transfor_cur_id=".$id_list.";";
 
@@ -487,7 +490,7 @@
 			}
 			if($type_pr==3)
 			{
-				$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  All_dates WHERE  Transfor_vol_id=".$id_list.";"), MYSQLI_NUM);	
+				$row = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM  all_dates WHERE  Transfor_vol_id=".$id_list.";"), MYSQLI_NUM);	
 				// echo "SELECT * FROM  All_dates WHERE  Transfor_vol_id=".$id_list.";";
 				// var_dump($row);
 			}
@@ -508,20 +511,20 @@
 	{
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
-		$result= mysqli_query($connect," Select * from Consumer where id_consumer IN
-		(Select Obj_Cons_id_tr_cur from Transfor_cur where id_tr_cur IN
+		$result= mysqli_query($connect," Select * from consumer where id_consumer IN
+		(Select Obj_Cons_id_tr_cur from transfor_cur where id_tr_cur IN
 		(select t1.Transfor_cur_id
-		from All_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type
+		from all_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type
 			where t2.Date_l < '".$date."' AND t2.Type_date_id=3)
 			UNION
-			Select Cons_id_obj_tr_vol from Transfor_vol Where id_tr_vol IN
+			Select Cons_id_obj_tr_vol from transfor_vol Where id_tr_vol IN
 			(select t1.Transfor_vol_id
-			from All_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type
+			from all_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type
 			where t2.Date_l < '".$date."' AND t2.Type_date_id=5)
 			UNION
-			Select Obj_Cons_id_count from Counter where id_count IN
+			Select Obj_Cons_id_count from counter where id_count IN
 			(select t1.Counter_id_count
-			from All_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type
+			from all_dates AS t1 join Date_list AS t2 join Type_date AS t3 on  t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type
 			where t2.Date_l < '".$date."' AND t2.Type_date_id=1 ));");
 
 	

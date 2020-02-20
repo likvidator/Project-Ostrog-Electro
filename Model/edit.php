@@ -11,6 +11,7 @@ function edit_cons($id_cons)
 				global $face;
 				
 				$n=mysqli_fetch_array(mysqli_query($connect,"select Name_consumer from consumer  WHERE id_consumer ='".$id_cons."';"));
+				echo "select Name_consumer from consumer  WHERE id_consumer ='".$id_cons."';";
 				$ph=mysqli_fetch_array(mysqli_query($connect,"select Phone_consumer from consumer  WHERE id_consumer='".$id_cons."';"));
 				$per=mysqli_fetch_array(mysqli_query($connect,"select Personal_account from consumer  WHERE id_consumer='".$id_cons."';"));
 				$f=mysqli_fetch_array(mysqli_query($connect,"select Face from consumer  WHERE id_consumer='".$id_cons."';"));
@@ -71,13 +72,13 @@ function edit_cons($id_cons)
 				
 				
 
-				$Ow_FIO=mysqli_fetch_array(mysqli_query($connect,"select Owner_FIO from Object  WHERE id_object ='".$id_obj."';"));
-				$Ren_FIO=mysqli_fetch_array(mysqli_query($connect,"select Renter_FIO from Object  WHERE id_object='".$id_obj."';"));
-				$Nam_obj=mysqli_fetch_array(mysqli_query($connect,"select Name_object from Object  WHERE id_object='".$id_obj."';"));
-				$Mail_dd=mysqli_fetch_array(mysqli_query($connect,"select Mailing_address from Object  WHERE id_object='".$id_obj."';"));
-				$Ph_obj=mysqli_fetch_array(mysqli_query($connect,"select Phone_object from Object  WHERE id_object='".$id_obj."';"));
-				$Sour_of_pow=mysqli_fetch_array(mysqli_query($connect,"select Source_of_power from Object  WHERE id_object='".$id_obj."';"));
-				$Vol_class=mysqli_fetch_array(mysqli_query($connect,"select Voltage_class from Object  WHERE id_object='".$id_obj."';"));
+				$Ow_FIO=mysqli_fetch_array(mysqli_query($connect,"select Owner_FIO from object  WHERE id_object ='".$id_obj."';"));
+				$Ren_FIO=mysqli_fetch_array(mysqli_query($connect,"select Renter_FIO from object  WHERE id_object='".$id_obj."';"));
+				$Nam_obj=mysqli_fetch_array(mysqli_query($connect,"select Name_object from object  WHERE id_object='".$id_obj."';"));
+				$Mail_dd=mysqli_fetch_array(mysqli_query($connect,"select Mailing_address from object  WHERE id_object='".$id_obj."';"));
+				$Ph_obj=mysqli_fetch_array(mysqli_query($connect,"select Phone_object from object  WHERE id_object='".$id_obj."';"));
+				$Sour_of_pow=mysqli_fetch_array(mysqli_query($connect,"select Source_of_power from object  WHERE id_object='".$id_obj."';"));
+				$Vol_class=mysqli_fetch_array(mysqli_query($connect,"select Voltage_class from object  WHERE id_object='".$id_obj."';"));
 				
 
 				$ow_fio=$Ow_FIO["Owner_FIO"];
@@ -139,21 +140,21 @@ function edit_cons($id_cons)
 	  			global $pl_shu;
 	  			global $other;
 
-	  			$type_count=mysqli_fetch_array(mysqli_query($connect,"select Type_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$mark_count=mysqli_fetch_array(mysqli_query($connect,"select Mark_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$type_count=mysqli_fetch_array(mysqli_query($connect,"select Type_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$mark_count=mysqli_fetch_array(mysqli_query($connect,"select Mark_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
 
-	  			$number_count=mysqli_fetch_array(mysqli_query($connect,"select Number_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$number_count=mysqli_fetch_array(mysqli_query($connect,"select Number_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
 
-	  			$year_release_count=mysqli_fetch_array(mysqli_query($connect,"select Year_release_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$class_accur_count=mysqli_fetch_array(mysqli_query($connect,"select Class_accur_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$date_gospr_count=mysqli_fetch_array(mysqli_query($connect,"select Date_gospr_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$date_next_pr_count=mysqli_fetch_array(mysqli_query($connect,"select Date_next_pr_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$kol_plomb_gospr=mysqli_fetch_array(mysqli_query($connect,"select Kol_plomb_gospr from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$kol_holog_stick=mysqli_fetch_array(mysqli_query($connect,"select Kol_holog_stick from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$plomb_netw_org=mysqli_fetch_array(mysqli_query($connect,"select Plomb_netw_org from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$antimag_plomb=mysqli_fetch_array(mysqli_query($connect,"select Antimag_plomb from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$plomb_shu=mysqli_fetch_array(mysqli_query($connect,"select Plomb_shu from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
-	  			$other_places_count=mysqli_fetch_array(mysqli_query($connect,"select Other_places_count from Counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$year_release_count=mysqli_fetch_array(mysqli_query($connect,"select Year_release_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$class_accur_count=mysqli_fetch_array(mysqli_query($connect,"select Class_accur_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$date_gospr_count=mysqli_fetch_array(mysqli_query($connect,"select Date_gospr_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$date_next_pr_count=mysqli_fetch_array(mysqli_query($connect,"select Date_next_pr_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$kol_plomb_gospr=mysqli_fetch_array(mysqli_query($connect,"select Kol_plomb_gospr from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$kol_holog_stick=mysqli_fetch_array(mysqli_query($connect,"select Kol_holog_stick from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$plomb_netw_org=mysqli_fetch_array(mysqli_query($connect,"select Plomb_netw_org from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$antimag_plomb=mysqli_fetch_array(mysqli_query($connect,"select Antimag_plomb from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$plomb_shu=mysqli_fetch_array(mysqli_query($connect,"select Plomb_shu from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
+	  			$other_places_count=mysqli_fetch_array(mysqli_query($connect,"select Other_places_count from counter WHERE  Obj_id_count ='".$id_obj."' AND Obj_Cons_id_count='".$user_id."';"));
 
 	  			$type=$type_count["Type_count"];
 	  			$mark=$mark_count["Mark_count"];
@@ -219,14 +220,14 @@ function edit_cons($id_cons)
 	  			global $kol_turn;
 	  			global $power;
 	  			
-	  			$date_dim=mysqli_fetch_array(mysqli_query($connect,"select Date_dimen from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
-	  			$alter_dim=mysqli_fetch_array(mysqli_query($connect,"select Alter_phase from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
-	  			$fa_dim=mysqli_fetch_array(mysqli_query($connect,"select Load_fa from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
-	  			$fb_dim=mysqli_fetch_array(mysqli_query($connect,"select Load_fb from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
-	  			$fc_dim=mysqli_fetch_array(mysqli_query($connect,"select Load_fc from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
-	  			$cos_dim=mysqli_fetch_array(mysqli_query($connect,"select Cos_fi from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
-	  			$kol_turn_dim=mysqli_fetch_array(mysqli_query($connect,"select Kol_turn_disk from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
-	  			$power_dim=mysqli_fetch_array(mysqli_query($connect,"select Power_consum from Dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$date_dim=mysqli_fetch_array(mysqli_query($connect,"select Date_dimen from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$alter_dim=mysqli_fetch_array(mysqli_query($connect,"select Alter_phase from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$fa_dim=mysqli_fetch_array(mysqli_query($connect,"select Load_fa from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$fb_dim=mysqli_fetch_array(mysqli_query($connect,"select Load_fb from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$fc_dim=mysqli_fetch_array(mysqli_query($connect,"select Load_fc from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$cos_dim=mysqli_fetch_array(mysqli_query($connect,"select Cos_fi from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$kol_turn_dim=mysqli_fetch_array(mysqli_query($connect,"select Kol_turn_disk from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
+	  			$power_dim=mysqli_fetch_array(mysqli_query($connect,"select Power_consum from dimension WHERE  Obj_id_dimen ='".$id_obj."' AND Obj_Cons_id_dimen='".$user_id."';"));
 
 	  			$date=$date_dim["Date_dimen"];
 	  			$alter=$alter_dim["Alter_phase"];
@@ -287,31 +288,31 @@ function edit_cons($id_cons)
 	  			global $fc_cur;
 	  			global $phase;
 
-	  			$type_tr=mysqli_fetch_array(mysqli_query($connect,"select Type_tr_cur from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$type_tr=mysqli_fetch_array(mysqli_query($connect,"select Type_tr_cur from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
-	  			$mark_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Mark_tr_cur from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$mark_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Mark_tr_cur from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
-	  			$denomin_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Denomin_tr_cur from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$denomin_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Denomin_tr_cur from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
-	  			$year_release_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Year_release_tr_cur from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$year_release_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Year_release_tr_cur from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
-	  			$date_gospr_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Date_gospr_tr_cur from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$date_gospr_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Date_gospr_tr_cur from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
-	  			$date_next_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Date_next_tr_cur from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$date_next_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Date_next_tr_cur from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
-	  			$num_tr_cur_fa=mysqli_fetch_array(mysqli_query($connect,"select Num_tr_cur_fa from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$num_tr_cur_fa=mysqli_fetch_array(mysqli_query($connect,"select Num_tr_cur_fa from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
 	  			// echo "select Num_tr_cur_fa from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';";
 
-	  			$num_tr_cur_fb=mysqli_fetch_array(mysqli_query($connect,"select Num_tr_cur_fb from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$num_tr_cur_fb=mysqli_fetch_array(mysqli_query($connect,"select Num_tr_cur_fb from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
 	  			// echo "select Num_tr_cur_fb from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';";
 
-	  			$num_tr_cur_fc=mysqli_fetch_array(mysqli_query($connect,"select Num_tr_cur_fc from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$num_tr_cur_fc=mysqli_fetch_array(mysqli_query($connect,"select Num_tr_cur_fc from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 	  			
 	  			// echo "select Num_tr_cur_fc from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';";
 
-	  			$phase_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Phase_tr_cur from Transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
+	  			$phase_tr_cur=mysqli_fetch_array(mysqli_query($connect,"select Phase_tr_cur from transfor_cur WHERE  Obj_id_tr_cur ='".$id_obj."' AND Obj_Cons_id_tr_cur='".$user_id."';"));
 
 	  			$type=$type_tr["Type_tr_cur"];
 	  			$mark=$mark_tr_cur["Mark_tr_cur"];
@@ -339,13 +340,13 @@ function edit_cons($id_cons)
 	  			global $denomin_tr;
 	  			global $plomb_tr;
 
-	  			$type_vol=mysqli_fetch_array(mysqli_query($connect,"select Type_tr_vol from Transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."' ;"));
+	  			$type_vol=mysqli_fetch_array(mysqli_query($connect,"select Type_tr_vol from transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."' ;"));
 
-	  			$mark_vol=mysqli_fetch_array(mysqli_query($connect,"select Mark_tr_vol from Transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."' ;"));
+	  			$mark_vol=mysqli_fetch_array(mysqli_query($connect,"select Mark_tr_vol from transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."' ;"));
 
-	  			$den_vol=mysqli_fetch_array(mysqli_query($connect,"select Denomin_tr_vol from Transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."';"));
+	  			$den_vol=mysqli_fetch_array(mysqli_query($connect,"select Denomin_tr_vol from transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."';"));
 
-	  			$pl_vol=mysqli_fetch_array(mysqli_query($connect,"select Plomb_tr_vol from Transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."';"));
+	  			$pl_vol=mysqli_fetch_array(mysqli_query($connect,"select Plomb_tr_vol from transfor_vol WHERE  id_tr_vol ='".$id_tr_vol."';"));
 
 	  			$type_tr=$type_vol["Type_tr_vol"];
 	  			$mark_tr=$mark_vol["Mark_tr_vol"];
@@ -423,13 +424,13 @@ function edit_cons($id_cons)
 	  			global $I2_pl;
 	  			global $other_pl;
 
-	  			$l1=mysqli_fetch_array(mysqli_query($connect,"Select t2.L1 from Phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
+	  			$l1=mysqli_fetch_array(mysqli_query($connect,"Select t2.L1 from phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
 	  			// echo "Select t2.L1 from Phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";";
 
-	  			$l2=mysqli_fetch_array(mysqli_query($connect,"Select t2.L2 from Phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
-	  			$i1=mysqli_fetch_array(mysqli_query($connect,"Select t2.I1 from Phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
-	  			$i2=mysqli_fetch_array(mysqli_query($connect,"Select t2.I2 from Phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
-	  			$other=mysqli_fetch_array(mysqli_query($connect,"Select t2.Other_places_plomb from Phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
+	  			$l2=mysqli_fetch_array(mysqli_query($connect,"Select t2.L2 from phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
+	  			$i1=mysqli_fetch_array(mysqli_query($connect,"Select t2.I1 from phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
+	  			$i2=mysqli_fetch_array(mysqli_query($connect,"Select t2.I2 from phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
+	  			$other=mysqli_fetch_array(mysqli_query($connect,"Select t2.Other_places_plomb from phase_tr_cur AS t1 join Plombs AS t2 on t1.Phase_id_plomb=t2.id_plomb where Transfor_cur_id_phase=".$id_tr_cur." AND t1.Phase=".$phase.";"));
 
 	  			$L1_pl=$l1["L1"];
 	  			$L2_pl=$l2["L2"];
@@ -481,11 +482,11 @@ function edit_cons($id_cons)
 	  			global $nom_old;
 	  			global $nom_new;
 
-	  			$Date_change_count=mysqli_fetch_array(mysqli_query($connect,"select Date_change from Change_count WHERE  id_change ='".$id_change."';"));
-	  			$Cause_change_count=mysqli_fetch_array(mysqli_query($connect,"select Cause_change from Change_count WHERE  id_change ='".$id_change."';"));
-	  			$FIO_change_count=mysqli_fetch_array(mysqli_query($connect,"select FIO_change from Change_count WHERE  id_change ='".$id_change."';"));
-	  			$Nomber_old_count=mysqli_fetch_array(mysqli_query($connect,"select Nomber_old from Change_count WHERE  id_change ='".$id_change."';"));
-	  			$Nomber_new_count=mysqli_fetch_array(mysqli_query($connect,"select Nomber_new from Change_count WHERE  id_change ='".$id_change."';"));
+	  			$Date_change_count=mysqli_fetch_array(mysqli_query($connect,"select Date_change from change_count WHERE  id_change ='".$id_change."';"));
+	  			$Cause_change_count=mysqli_fetch_array(mysqli_query($connect,"select Cause_change from change_count WHERE  id_change ='".$id_change."';"));
+	  			$FIO_change_count=mysqli_fetch_array(mysqli_query($connect,"select FIO_change from change_count WHERE  id_change ='".$id_change."';"));
+	  			$Nomber_old_count=mysqli_fetch_array(mysqli_query($connect,"select Nomber_old from change_count WHERE  id_change ='".$id_change."';"));
+	  			$Nomber_new_count=mysqli_fetch_array(mysqli_query($connect,"select Nomber_new from change_count WHERE  id_change ='".$id_change."';"));
 
 	  			$date_change=$Date_change_count["Date_change"];
 	  			$cause=$Cause_change_count["Cause_change"];
@@ -535,12 +536,12 @@ function edit_cons($id_cons)
 
 	  			if($type_pr==1)
 	  			{
-	  				$Date_all=mysqli_fetch_array(mysqli_query($connect,"select t2.Date_l from All_dates as t1 join Date_list as t2 join Type_date as t3 on t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type WHERE t1.Counter_id_count='".$id_all."' AND t1.Date_list_id='".$id_date_list."' AND id_Type='".$type_all."';"));
+	  				$Date_all=mysqli_fetch_array(mysqli_query($connect,"select t2.Date_l from all_dates as t1 join Date_list as t2 join Type_date as t3 on t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type WHERE t1.Counter_id_count='".$id_all."' AND t1.Date_list_id='".$id_date_list."' AND id_Type='".$type_all."';"));
 
 	  				//var_dump($Date_all);
-	  				$Conclusio_all=mysqli_fetch_array(mysqli_query($connect,"Select Conclusio from All_dates where Date_list_id='".$id_date_list."' AND Counter_id_count='".$id_all."';"));
+	  				$Conclusio_all=mysqli_fetch_array(mysqli_query($connect,"Select Conclusio from all_dates where Date_list_id='".$id_date_list."' AND Counter_id_count='".$id_all."';"));
 	  				//var_dump($Conclusio_all);
-	  				$Notes_all=mysqli_fetch_array(mysqli_query($connect,"Select Notes from All_dates where Date_list_id='".$id_date_list."' AND Counter_id_count='".$id_all."';"));
+	  				$Notes_all=mysqli_fetch_array(mysqli_query($connect,"Select Notes from all_dates where Date_list_id='".$id_date_list."' AND Counter_id_count='".$id_all."';"));
 	  				//var_dump($Notes_all);
 
 	  				$date_all=$Date_all["Date_l"];
@@ -552,9 +553,9 @@ function edit_cons($id_cons)
 	  			}
 	  			if($type_pr==2)
 	  			{
-	  				$Date_all=mysqli_fetch_array(mysqli_query($connect,"select t2.Date_l from All_dates as t1 join Date_list as t2 join Type_date as t3 on t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type WHERE t1.Transfor_cur_id='".$id_all."' AND t1.Date_list_id='".$id_date_list."' AND id_Type='".$type_all."';"));
-	  				$Conclusio_all=mysqli_fetch_array(mysqli_query($connect,"Select Conclusio from All_dates where Date_list_id='".$id_date_list."' AND Transfor_cur_id='".$id_all."';"));
-	  				$Notes_all=mysqli_fetch_array(mysqli_query($connect,"Select Notes from All_dates where Date_list_id='".$id_date_list."' AND Transfor_cur_id='".$id_all."';"));
+	  				$Date_all=mysqli_fetch_array(mysqli_query($connect,"select t2.Date_l from all_dates as t1 join Date_list as t2 join Type_date as t3 on t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type WHERE t1.Transfor_cur_id='".$id_all."' AND t1.Date_list_id='".$id_date_list."' AND id_Type='".$type_all."';"));
+	  				$Conclusio_all=mysqli_fetch_array(mysqli_query($connect,"Select Conclusio from all_dates where Date_list_id='".$id_date_list."' AND Transfor_cur_id='".$id_all."';"));
+	  				$Notes_all=mysqli_fetch_array(mysqli_query($connect,"Select Notes from all_dates where Date_list_id='".$id_date_list."' AND Transfor_cur_id='".$id_all."';"));
 
 	  				$date_all=$Date_all["Date_l"];
 	  				$conclusio_all=$Conclusio_all["Conclusio"];
@@ -563,9 +564,9 @@ function edit_cons($id_cons)
 	  			}
 	  			if($type_pr==3)
 	  			{
-	  				$Date_all=mysqli_fetch_array(mysqli_query($connect,"select t2.Date_l from All_dates as t1 join Date_list as t2 join Type_date as t3 on t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type WHERE t1.Transfor_vol_id='".$id_all."' AND t1.Date_list_id='".$id_date_list."' AND id_Type='".$type_all."';"));
-	  				$Conclusio_all=mysqli_fetch_array(mysqli_query($connect,"Select Conclusio from All_dates where Date_list_id='".$id_date_list."' AND Transfor_vol_id='".$id_all."';"));
-	  				$Notes_all=mysqli_fetch_array(mysqli_query($connect,"Select Notes from All_dates where Date_list_id='".$id_date_list."' AND Transfor_vol_id='".$id_all."';"));
+	  				$Date_all=mysqli_fetch_array(mysqli_query($connect,"select t2.Date_l from all_dates as t1 join Date_list as t2 join Type_date as t3 on t1.Date_list_id=t2.id_Date AND t2.Type_date_id=t3.id_Type WHERE t1.Transfor_vol_id='".$id_all."' AND t1.Date_list_id='".$id_date_list."' AND id_Type='".$type_all."';"));
+	  				$Conclusio_all=mysqli_fetch_array(mysqli_query($connect,"Select Conclusio from all_dates where Date_list_id='".$id_date_list."' AND Transfor_vol_id='".$id_all."';"));
+	  				$Notes_all=mysqli_fetch_array(mysqli_query($connect,"Select Notes from all_dates where Date_list_id='".$id_date_list."' AND Transfor_vol_id='".$id_all."';"));
 
 	  				$date_all=$Date_all["Date_l"];
 	  				$conclusio_all=$Conclusio_all["Conclusio"];

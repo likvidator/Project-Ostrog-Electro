@@ -68,7 +68,7 @@ $row=cust_conclusion($_GET["user_id"]);
          {
             case "Add_object":
             ?>
-			 <script>
+			<script>
 			 var a = "<?php echo $user_id ?>";			 
              alert ('Объект успешно добавлен');
              window.location="customer.php?user_id="+a;

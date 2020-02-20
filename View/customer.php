@@ -57,8 +57,8 @@ $all_dat_tr_vol=all_dates_conclusion($id_tr_vol,3);
 					}
 
 				?>
-				<br><a href="..\View\del_consumer.php?user_id=<?php echo (int)$user_id; ?>"> Удалить потребителя</a></br>
-   				<a href="..\View\edit_v.php?user_id=<?php echo (int)$user_id; ?>"> Редактировать потребителя</a>
+				<br><a href="..\View\del_consumer.php?user_id=<?php echo (int)$user_id; ?>"> Удалить пользователя</a></br>
+   				<a href="..\View\edit_v.php?user_id=<?php echo (int)$user_id; ?>"> Редактировать</a>
     			<?php
     			if (prov_obj($user_id)!=1)
     			{	echo '
@@ -85,7 +85,7 @@ $all_dat_tr_vol=all_dates_conclusion($id_tr_vol,3);
 
 					<a href="..\View\del_object.php?id_obj='.$id_obj.'&user_id='.$user_id.'"> Удалить объект</a>
      				<br>
-     				<a href="..\View\edit_object.php?id_obj='.$id_obj.'&user_id='.$user_id.'"> Редактировать объект</a>
+     				<a href="..\View\edit_object.php?id_obj='.$id_obj.'&user_id='.$user_id.'"> Редактировать</a>
     				 <br>';
      				if(prov_counter($id_obj,$user_id)!=1)
      					echo'

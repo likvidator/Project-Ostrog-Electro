@@ -9,13 +9,13 @@ exit();
 
 
 if(!empty($_GET["id_obj"]) AND !empty($_GET["user_id"]))
-{  
+  
 	$result=del_object($_GET["id_obj"]);
   $user_id = ($_GET['user_id']);
 	switch ($result)
          {
             case "Del_obj":
-
+            // echo "Объект успешно удален";
             ?>
               <script>
                 var a = "<?php echo $user_id ?>";
@@ -28,5 +28,5 @@ if(!empty($_GET["id_obj"]) AND !empty($_GET["user_id"]))
               echo "Объект не удален";
               break;
           }
-}
+
 ?>

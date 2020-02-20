@@ -9,10 +9,10 @@ function auth_user($user_value,$password_value){
   	$password = mysqli_real_escape_string($connect,htmlspecialchars($password_value));
 		$pass=password_hash($password,PASSWORD_BCRYPT);
 		
-		$sql = "SELECT COUNT(Password) FROM User WHERE Name = '$login';";
+		$sql = "SELECT COUNT(Password) FROM user WHERE Name = '$login';";
 		$res = mysqli_query($connect,$sql) or trigger_error(mysqli_error($connect)." in ". $sql);
   	$row= mysqli_fetch_array($res, MYSQLI_NUM);
-  	$row2 =mysqli_fetch_array(mysqli_query($connect,"SELECT Password FROM User WHERE Name = '$login';"), MYSQLI_NUM);
+  	$row2 =mysqli_fetch_array(mysqli_query($connect,"SELECT Password FROM user WHERE Name = '$login';"), MYSQLI_NUM);
    
   	if (count($row)==0)
   	{

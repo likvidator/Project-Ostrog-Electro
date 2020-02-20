@@ -41,7 +41,7 @@ $row=cust_conclusion($_GET["user_id"]);
             document.getElementById('type2').style.display = 'none';
           }
         </script>
-        <!-- <div id="type1"> -->
+        <div id="type1">
           <div class="form-group">
             <label for="name">№ Трансформатора тока фА:</label>
             <input name="Num_tr_cur_fa" class="form-control">
@@ -71,7 +71,7 @@ $row=cust_conclusion($_GET["user_id"]);
             <label for="name">Другие места:</label>
             <input name="Other_places_plomb_a" class="form-control">
           </div>
-    <!--     </div> -->
+        </div>
 
         <div id="type2">
           <div class="form-group">
