@@ -26,12 +26,7 @@ CREATE TABLE IF NOT EXISTS `home`.`Object` (
   `Mailing_address` VARCHAR(45) NULL,
   `Phone_object` VARCHAR(45) NULL,
   `Source_of_power` VARCHAR(45) NULL,
-<<<<<<< HEAD
   `Voltage_class` VARCHAR(45) NULL, 
-=======
-  `Voltage_class` VARCHAR(45) NULL,
-  `Date_instrumental_check` VARCHAR(45) NULL,
->>>>>>> 7ae3d5e80424c88be880905fbd410c5f660a561c
   `Obj_Cons_id` INT NOT NULL,
   PRIMARY KEY (`id_object`, `Obj_Cons_id`),
   INDEX `fk_Объект_Потребитель_idx` (`Obj_Cons_id` ASC),
@@ -95,11 +90,7 @@ ENGINE = InnoDB;
 -- Table `home`.`Transfor_cur`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `home`.`Transfor_cur` (
-<<<<<<< HEAD
   `id_tr_cur` INT NOT NULL,
-=======
-  `id_tr_cur` INT NOT NULL AUTO_INCREMENT,
->>>>>>> 7ae3d5e80424c88be880905fbd410c5f660a561c
   `Type_tr_cur` VARCHAR(45) NULL,
   `Mark_tr_cur` VARCHAR(45) NULL,
   `Denomin_tr_cur` VARCHAR(45) NULL,
@@ -107,10 +98,6 @@ CREATE TABLE IF NOT EXISTS `home`.`Transfor_cur` (
   `Num_tr_cur_fa` VARCHAR(45) NULL,
   `Num_tr_cur_fb` VARCHAR(45) NULL,
   `Num_tr_cur_fc` VARCHAR(45) NULL,
-<<<<<<< HEAD
-=======
-  `Phase_tr_cur` VARCHAR(45) NULL,
->>>>>>> 7ae3d5e80424c88be880905fbd410c5f660a561c
   `Obj_id_tr_cur` INT NOT NULL,
   `Obj_Cons_id_tr_cur` INT NOT NULL,
   PRIMARY KEY (`id_tr_cur`),
@@ -122,10 +109,6 @@ CREATE TABLE IF NOT EXISTS `home`.`Transfor_cur` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ae3d5e80424c88be880905fbd410c5f660a561c
 -- -----------------------------------------------------
 -- Table `home`.`Plombs`
 -- -----------------------------------------------------
@@ -136,7 +119,6 @@ CREATE TABLE IF NOT EXISTS `home`.`Plombs` (
   `I1` VARCHAR(45) NULL,
   `I2` VARCHAR(45) NULL,
   `Other_places_plomb` VARCHAR(45) NULL,
-<<<<<<< HEAD
   PRIMARY KEY (`id_plomb`))
 ENGINE = InnoDB;
 -- -----------------------------------------------------
@@ -157,26 +139,10 @@ CREATE TABLE IF NOT EXISTS `home`.`Phase_tr_cur` (
     FOREIGN KEY (`Phase_id_plomb`)
     REFERENCES `home`.`Plombs` (`id_plomb`)
     ON DELETE NO ACTION
-=======
-  `Tr_cur_id_plomb` INT NOT NULL,
-  PRIMARY KEY (`id_plomb`, `Tr_cur_id_plomb`),
-  INDEX `fk_Пломбы_Трансформатор тока1_idx` (`Tr_cur_id_plomb` ASC),
-  CONSTRAINT `fk_Пломбы_Трансформатор тока1`
-    FOREIGN KEY (`Tr_cur_id_plomb`)
-    REFERENCES `home`.`Transfor_cur` (`id_tr_cur`)
-    ON DELETE NO ACTION
->>>>>>> 7ae3d5e80424c88be880905fbd410c5f660a561c
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
-<<<<<<< HEAD
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-=======
->>>>>>> 7ae3d5e80424c88be880905fbd410c5f660a561c
 -- -----------------------------------------------------
 -- Table `home`.`Dimension`
 -- -----------------------------------------------------
@@ -316,19 +282,15 @@ VALUES ('6','госпроверка трансформатора напряже�
 
 
 ALTER TABLE `home`.`change_count` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`consumer` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`counter` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`dimension` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`object` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`plombs` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`transfor_cur` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`transfor_vol` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE `home`.`user` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`Consumer` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`Counter` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`Dimension` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`Object` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`Plombs` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`Transfor_cur` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`Transfor_vol` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `home`.`User` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE `home`.`Type_date` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE `home`.`Date_list` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE `home`.`All_dates` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-<<<<<<< HEAD
 ALTER TABLE `home`.`Phase_tr_cur` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-=======
->>>>>>> 7ae3d5e80424c88be880905fbd410c5f660a561c
-
