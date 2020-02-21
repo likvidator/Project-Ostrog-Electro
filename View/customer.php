@@ -105,12 +105,20 @@ $all_dat_tr_vol=all_dates_conclusion($id_tr_vol,3);
 						Номер: '.$row3[0]['Number_count'].';
 						<br>Год выпуска: '.$row3[0]['Year_release_count'].';</br>
 						Класс точности: '.$row3[0]['Class_accur_count'].';
-						<br>Количество пломб госпроверки: '.$row3[0]['Kol_plomb_gospr'].';</br>
+						<br>Пломбы на крышке зажимов счетчика: '.$row3[0]['Kol_plomb_gospr'].';</br>
 						Количество голографичеких наклеек: '.$row3[0]['Kol_holog_stick'].';
 						<br>Пломбы сетевой организации:'.$row3[0]['Plomb_netw_org'].';</br>
 						Антимагнитые пломбы:'.$row3[0]['Antimag_plomb'].';
 						<br>Пломба на ШУ:'.$row3[0]['Plomb_shu'].';</br>
 						Другие места:'.$row3[0]['Other_places_count'].';
+
+						<br>Место установки:'.$row3[0]['Place'].';</br>
+						Основание проверки:'.$row3[0]['Base_of_verifications'].';
+
+					
+						<br>Разрядность:'.$row3[0]['Discharge'].';</br>
+
+						<br>Показания:'.$row3[0]['Values_counter'].';</br>
 					</div>
 
 				<a href="..\View\del_counter.php?user_id='.$user_id.'&id_obj='.$id_obj.'"> Удалить счетчик</a>

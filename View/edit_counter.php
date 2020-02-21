@@ -43,12 +43,12 @@ edit_counter($_GET["user_id"],$_GET["id_obj"]);
           <input name="Class_accur_count" class="form-control" value="<?php echo $class_acc; ?>">
       </div>
         <div class="form-group">
-          <label for="name">Количество пломб госпроверки</label>
+          <label for="name">Пломбы на крышке зажимов счетчика</label>
           <input name="Kol_plomb_gospr" class="form-control" value="<?php echo $kol_pl; ?>">
       </div>
 
         <div class="form-group">
-          <label for="name">Количество голографичесих наклеек</label>
+          <label for="name">Пломбы на клеммах вводного отключающего устойства</label>
           <input name="Kol_holog_stick" class="form-control" value="<?php echo $kol_hol; ?>">
       </div>
 

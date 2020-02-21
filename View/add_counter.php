@@ -5,12 +5,20 @@ include './biblioticdib.php';
 include '../Model/add.php';
 include '../Model/cons.php';
 if(status_user()==0) { 
-header ('Location:../View/index.php'); 
-exit(); 
+  header ('Location:../View/index.php'); 
+  exit(); 
 }
 // echo var_dump($_GET);
 $user_id = $_GET["user_id"];
 $id_obj = $_GET["id_obj"];
+
+if(empty($user_id) or empty($id_obj)) { 
+  header ('Location:../View/index.php'); 
+  exit(); 
+}
+
+
+
 $row=cust_conclusion($_GET["user_id"]);
 ?>
 <!DOCTYPE html>
@@ -21,11 +29,16 @@ $row=cust_conclusion($_GET["user_id"]);
      	 	<label for="name">Тип</label>
       		<input name="Type_count" class="form-control">
     	</div>
-
-    	<div class="form-group">
-      		<label for="name">Марка</label>
-      		<input name="Mark_count" class="form-control">
-    	</div>
+      <div class="row">
+      	<div class="col-sm-6">
+        		<label for="name">Марка</label>
+        		<input name="Mark_count" class="form-control">
+      	</div>
+        <div class="col-sm-6">
+            <label for="name">Место установки</label>
+            <input name="Place" class="form-control">
+        </div>
+      </div>
 
       <div class="form-group">
           <label for="name">Номер счетчика</label>
@@ -37,18 +50,15 @@ $row=cust_conclusion($_GET["user_id"]);
       		<input type="date" name="Year_release_count" class="form-control">
     	</div>
 
-    	<div class="form-group">
-      		<label for="name">Класс точности</label>
-      		<input name="Class_accur_count" class="form-control">
-    	</div>
+ 
 
     	<div class="form-group">
-      		<label for="name">Количество пломб госпроверки</label>
+      		<label for="name">Пломбы на крышке зажимов счетчика</label>
       		<input name="Kol_plomb_gospr" class="form-control">
     	</div>
 
     		<div class="form-group">
-      		<label for="name">Количество голографичесих наклеек</label>
+      		<label for="name">Пломбы на клеммах вводного отключающего устойства</label>
       		<input name="Kol_holog_stick" class="form-control">
     	</div>
 
@@ -71,6 +81,28 @@ $row=cust_conclusion($_GET["user_id"]);
       		<label for="name">Другие места</label>
       		<input name="Other_places_count" class="form-control">
     	</div>
+-----------------------------
+
+        
+        <div class="form-group">
+          <label for="name">Основание проверки</label>
+          <input name="Base_of_verifications" class="form-control">
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="name">Класс точности</label>
+          <input name="Class_accur_count" class="form-control">
+        </div>
+        <div class="col-sm-6">
+          <label for="name">Разрядность</label>
+          <input name="Discharge" class="form-control">
+        </div>
+      </div>
+        <div class="form-group">
+          <label for="name">Показания</label>
+          <input name="Values_counter" class="form-control">
+      </div>
+
+      ---
     	<div class="button-container">
       		<input autofocus class="btn btn-success" type="submit" value="Добавить">
       	</div>
@@ -85,10 +117,11 @@ $row=cust_conclusion($_GET["user_id"]);
 
 <?php
     
-    if(!empty($_POST['Type_count']) AND !empty($_POST['Mark_count']) AND !empty($_POST['Number_count'])  AND !empty($_POST['Year_release_count']) AND !empty($_POST['Class_accur_count'] ) AND !empty($_POST['Kol_plomb_gospr'])AND !empty($_POST['Kol_holog_stick'])AND !empty($_POST['Plomb_netw_org'])AND !empty($_POST['Antimag_plomb']) AND !empty($_POST['Plomb_shu']) AND !empty($_POST['Other_places_count']) AND !empty($_POST['id_obj']) AND !empty($_POST['user_id']))
-    {
-        $result =  add_counter(($_POST['Type_count']),($_POST['Mark_count']),($_POST['Number_count']),($_POST['Year_release_count']),($_POST['Class_accur_count']),($_POST['Kol_plomb_gospr']),($_POST['Kol_holog_stick']),($_POST['Plomb_netw_org']),($_POST['Antimag_plomb']),($_POST['Plomb_shu']),($_POST['Other_places_count']),($_POST['id_obj']),($_POST['user_id']));
+    if(!empty($_POST['Type_count']) AND !empty($_POST['Mark_count']) AND !empty($_POST['Number_count'])  AND !empty($_POST['Year_release_count']) AND !empty($_POST['Class_accur_count'] ) AND !empty($_POST['Kol_plomb_gospr'])AND !empty($_POST['Kol_holog_stick'])AND !empty($_POST['Plomb_netw_org'])AND !empty($_POST['Antimag_plomb']) AND !empty($_POST['Plomb_shu']) AND !empty($_POST['Other_places_count']) AND !empty($_POST['id_obj']) AND !empty($_POST['user_id']) AND !empty($_POST['Place']) AND !empty($_POST['Base_of_verifications']) AND !empty($_POST['Discharge']) AND !empty($_POST['Values_counter'] )) {
 
+
+        $result =  add_counter(($_POST['Type_count']),($_POST['Mark_count']),($_POST['Number_count']),($_POST['Year_release_count']),($_POST['Class_accur_count']),($_POST['Kol_plomb_gospr']),($_POST['Kol_holog_stick']),($_POST['Plomb_netw_org']),($_POST['Antimag_plomb']),($_POST['Plomb_shu']),($_POST['Other_places_count']),($_POST['id_obj']),($_POST['user_id']),($_POST['Place']),($_POST['Base_of_verifications']),($_POST['Base_of_verifications']), ($_POST['Discharge']));
+        // echo "Go to insert";
         $user_id = $_POST['user_id'];
         switch ($result)
          {
