@@ -136,27 +136,51 @@ $all_dat_tr_vol=all_dates_conclusion($id_tr_vol,3);
     				<br><a href="..\View\add_dimension.php?user_id='.$user_id.'&id_obj='.$id_obj.'"> Добавить данные об измерениях</a></br>';
     			}
 
-    			echo'
+    			echo'<div class="border">
     			<h4><a href="..\View\add_all_dates.php?id_all='.$id_count.'&type_pr=1&user_id='.$user_id.'"> Добавить дату о проверке счетчика</a></h4>';
 
     			if (prov_date($id_count,1)==1)
     			{
     				for ($i = 0; $i<count($all_dat_count); $i++) 
     				{
-    					
-    				echo '
-    				<br>Дата: '.$all_dat_count[$i]['Date_l'].' '.$all_dat_count[$i]['Type'].';</br>
-    				Заключение по учету: '.$all_dat_count[$i]['Conclusio'].';
-    				<br>Примечание: '.$all_dat_count[$i]['Notes'].';</br>
-    				<a href="..\View\del_all_dates.php?id_all='.$id_count.'&id_date_list='.$all_dat_count[$i]['Date_list_id'].'&type_pr=1&user_id='.$user_id.'"> Удалить дату о проверке/поверке счетчика </a>
-    				<br>
-    				<a href="..\View\edit_all_dates.php?id_all='.$id_count.'&type_all='.$all_dat_count[$i]['id_Type'].'&id_date_list='.$all_dat_count[$i]['Date_list_id'].'&type_pr=1&user_id='.$user_id.'"> Редактировать дату </a>
-    				</br>
-    				';
-    				}
-    			
+    					if ($i==0)
+    					{
+		    				echo '
+		    				<div class="border">Дата: '.$all_dat_count[$i]['Date_l'].' '.$all_dat_count[$i]['Type'].';
+		    				Заключение по учету: '.$all_dat_count[$i]['Conclusio'].';
+		    				<br>Примечание: '.$all_dat_count[$i]['Notes'].';</br>
+		    				<a href="..\View\del_all_dates.php?id_all='.$id_count.'&id_date_list='.$all_dat_count[$i]['Date_list_id'].'&type_pr=1&user_id='.$user_id.'"> Удалить дату о проверке/поверке счетчика </a>
+		    				<br>
+		    				<a href="..\View\edit_all_dates.php?id_all='.$id_count.'&type_all='.$all_dat_count[$i]['id_Type'].'&id_date_list='.$all_dat_count[$i]['Date_list_id'].'&type_pr=1&user_id='.$user_id.'"> Редактировать дату </a>
+		    				</br></div><br>
+		    				';
+	    				}
+	    				else{ 
+	    					echo '<div class="border">Дата: '.$all_dat_count[$i]['Date_l'].' '.$all_dat_count[$i]['Type'].';
+		    				Заключение по учету: '.$all_dat_count[$i]['Conclusio'].';
+		    				<br>Примечание: '.$all_dat_count[$i]['Notes'].';</br>
+		    				<a href="..\View\del_all_dates.php?id_all='.$id_count.'&id_date_list='.$all_dat_count[$i]['Date_list_id'].'&type_pr=1&user_id='.$user_id.'"> Удалить дату о проверке/поверке счетчика </a>
+		    				<br>
+		    				<a href="..\View\edit_all_dates.php?id_all='.$id_count.'&type_all='.$all_dat_count[$i]['id_Type'].'&id_date_list='.$all_dat_count[$i]['Date_list_id'].'&type_pr=1&user_id='.$user_id.'"> Редактировать дату </a>
+		    				</br></div><br>';
 
+	    				}
+	    				if (count($all_dat_count)!=0 and $i==0){
+	    					echo '<label class="text-chkbox">
+								    <div class="label-text">
+								       <h4> Показать остальные </h4>
+								    </div>
+								    <input type="checkbox" />
+								    <div class="hidden-text">
+								';
+	    				}
+	    				if (($i+1)==count($all_dat_count)){
+	    					echo '</div> 
+								</label>';
+	    				}
+	    			}
     			}
+    			echo '</div>';
     			if (prov_transfor_cur($id_obj,$user_id)!=1)
     			{
     			// { echo '
@@ -165,11 +189,12 @@ $all_dat_tr_vol=all_dates_conclusion($id_tr_vol,3);
     			 <a href="..\View\new_add_transfor_cur.php?user_id='.$user_id.'&id_obj='.$id_obj.';"> Добавить трансформатор тока</a>';
     			}
 
-    			if (prov_tr_vol($id_tr_vol)!=1)
-    			{echo'
+    			// if (prov_tr_vol($id_tr_vol)!=1)
+    			// {
+    				echo'
     				<br>
     				<a href="..\View\add_transfor_vol.php?user_id='.$user_id.'&id_obj='.$id_obj.';"> Добавить трансформатор напряжения</a></br>';
-    			}
+    			// }
 
 				}
 			?>
