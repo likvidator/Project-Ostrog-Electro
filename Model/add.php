@@ -33,14 +33,14 @@
 	  
 	}
 
-	function add_object($owner_fio,$renter_fio,$name_object,$mail_address,$phone_object,$sourse_of_power,$vol_class,$user_id)
+	function add_object($owner_fio,$renter_fio,$name_object,$mail_address,$phone_object,$sourse_of_power,$vol_class,$user_id,$Balanse_state,$Number_TU,$Date_TU,$Description)
 		{
 			include_once "../Controller/connection.php";
 			$connect = get_connect();
-			if (!empty($owner_fio) AND !empty($renter_fio) AND !empty($name_object) AND !empty($mail_address) AND !empty($phone_object)  AND !empty($sourse_of_power) AND !empty($vol_class) AND !empty($user_id) )
+			if (!empty($owner_fio) AND !empty($renter_fio) AND !empty($name_object) AND !empty($mail_address) AND !empty($phone_object)  AND !empty($sourse_of_power) AND !empty($vol_class) AND !empty($user_id) AND !empty($Balanse_state)  AND !empty($Number_TU)  AND !empty($Date_TU) AND !empty($Description))
 			{
-					mysqli_query($connect,"INSERT INTO object (Owner_FIO, Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class,Obj_Cons_id)
-  				VALUES ('$owner_fio','$renter_fio','$name_object','$mail_address','$phone_object','$sourse_of_power','$vol_class','$user_id');");
+					mysqli_query($connect,"INSERT INTO object (Owner_FIO, Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class,Obj_Cons_id, Balanse_state, Number_TU, Date_TU,Description)
+  				VALUES ('$owner_fio','$renter_fio','$name_object','$mail_address','$phone_object','$sourse_of_power','$vol_class','$user_id', '$Balanse_state', '$Number_TU', '$Date_TU', '$Description');");
 
 				//echo "INSERT INTO Object (Owner_FIO, Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class,Obj_Cons_id)
   				//VALUES ('$owner_fio','$renter_fio','$name_object','$mail_address','$phone_object','$sourse_of_power','$vol_class','$user_id');";

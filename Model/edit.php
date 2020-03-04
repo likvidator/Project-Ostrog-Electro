@@ -69,6 +69,11 @@ function edit_cons($id_cons)
 				global $phon_obj;
 				global $sour_of_pow;
 				global $vol_cl;
+
+				global $Balanse_state_t;
+				global $Number_TU_t;
+				global $Date_TU_t;
+				global $Description_t;
 				
 				
 
@@ -79,6 +84,11 @@ function edit_cons($id_cons)
 				$Ph_obj=mysqli_fetch_array(mysqli_query($connect,"select Phone_object from object  WHERE id_object='".$id_obj."';"));
 				$Sour_of_pow=mysqli_fetch_array(mysqli_query($connect,"select Source_of_power from object  WHERE id_object='".$id_obj."';"));
 				$Vol_class=mysqli_fetch_array(mysqli_query($connect,"select Voltage_class from object  WHERE id_object='".$id_obj."';"));
+
+				$Balanse_state=mysqli_fetch_array(mysqli_query($connect,"select Balanse_state from object  WHERE id_object='".$id_obj."';"));
+				$Number_TU=mysqli_fetch_array(mysqli_query($connect,"select Number_TU from object  WHERE id_object='".$id_obj."';"));
+				$Date_TU=mysqli_fetch_array(mysqli_query($connect,"select Date_TU from object  WHERE id_object='".$id_obj."';"));
+				$Description=mysqli_fetch_array(mysqli_query($connect,"select Description from object  WHERE id_object='".$id_obj."';"));
 				
 
 				$ow_fio=$Ow_FIO["Owner_FIO"];
@@ -88,25 +98,36 @@ function edit_cons($id_cons)
 				$phon_obj=$Ph_obj["Phone_object"];
 				$sour_of_pow=$Sour_of_pow["Source_of_power"];
 				$vol_cl=$Vol_class["Voltage_class"];
+
+				$Balanse_state_t=$Balanse_state["Balanse_state"];
+				$Number_TU_t=$Number_TU["Number_TU"];
+				$Date_TU_t=$Date_TU["Date_TU"];
+				$Description_t=$Description["Description"];
 			
 			}
 	  		
 		}
 
-		function edit_object_update($owner_fio,$ren_fio,$name_object,$mail_addr,$phone_obj,$sour_of_pow,$vol_class,$id_obj)
+		function edit_object_update($owner_fio,$ren_fio,$name_object,$mail_addr,$phone_obj,$sour_of_pow,$vol_class,$id_obj,$Balanse_state,$Number_TU,$Date_TU, $Description)
 		{
 			include_once "../Controller/connection.php";
 	  		$connect = get_connect();
 	  
-	  		if (!empty($owner_fio) AND !empty($ren_fio) AND !empty($name_object) AND !empty($mail_addr) AND !empty($phone_obj) AND !empty($sour_of_pow) AND !empty($vol_class) AND !empty($id_obj)) 
+	  		if (!empty($owner_fio) AND !empty($ren_fio) AND !empty($name_object) AND !empty($mail_addr) AND !empty($phone_obj) AND !empty($sour_of_pow) AND !empty($vol_class) AND !empty($id_obj) AND !empty($Balanse_state) AND !empty($Number_TU) AND !empty($Date_TU)  AND !empty($Description)) 
 	  		{
-	  			mysqli_query($connect,"UPDATE Object SET Owner_FIO='".$owner_fio."' WHERE id_object='".$id_obj."';");
-	  			mysqli_query($connect,"UPDATE Object SET Renter_FIO='".$ren_fio."' WHERE id_object='".$id_obj."';");
-	  			mysqli_query($connect,"UPDATE Object SET Name_object='".$name_object."' WHERE id_object='".$id_obj."';");
-	  			mysqli_query($connect,"UPDATE Object SET Mailing_address='".$mail_addr."' WHERE id_object='".$id_obj."';");
-	  			mysqli_query($connect,"UPDATE Object SET Phone_object='".$phone_obj."' WHERE id_object='".$id_obj."';");
-	  			mysqli_query($connect,"UPDATE Object SET Source_of_power='".$sour_of_pow."' WHERE id_object='".$id_obj."';");
-	  			mysqli_query($connect,"UPDATE Object SET Voltage_class='".$vol_class."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Owner_FIO='".$owner_fio."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Renter_FIO='".$ren_fio."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Name_object='".$name_object."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Mailing_address='".$mail_addr."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Phone_object='".$phone_obj."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Source_of_power='".$sour_of_pow."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Voltage_class='".$vol_class."' WHERE id_object='".$id_obj."';");
+
+	  			mysqli_query($connect,"UPDATE object SET Balanse_state='".$Balanse_state."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Number_TU='".$Number_TU."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Date_TU='".$Date_TU."' WHERE id_object='".$id_obj."';");
+	  			mysqli_query($connect,"UPDATE object SET Description='".$Description."' WHERE id_object='".$id_obj."';");
+
 	  			return 'Edit_obj';
 	
 				exit();

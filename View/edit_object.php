@@ -9,7 +9,6 @@ header ('Location:../View/index.php');
 exit(); 
 }
 $id_obj = $_GET["id_obj"];
-
 $user_id = $_GET["user_id"];
 $row=cust_conclusion($_GET["user_id"]);
 edit_object($_GET["id_obj"]);
@@ -54,6 +53,28 @@ edit_object($_GET["id_obj"]);
     		<label for="name">Класс напряжения</label>
     		<input type="text" name="Voltage_class" class="form-control" value="<?php echo $vol_cl; ?>">
   		</div>
+
+      <div class="form-group">
+        <label for="name">Балансовая пренадлежность</label>
+        <input type="text" name="Balanse_state" class="form-control" value="<?php echo $Balanse_state_t; ?>">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Номер ТУ</label>
+        <input type="text" name="Number_TU" class="form-control" value="<?php echo $Number_TU_t; ?>">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Дата ТУ</label>
+        <input type="date" name="Date_TU" class="form-control" value="<?php echo $Date_TU_t; ?>">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Примечание</label>
+        <input type="text" name="Description" class="form-control" value="<?php echo $Description_t; ?>">
+      </div>
+
+
   		<div class="button-container">
       		<input autofocus class="btn btn-success" type="submit" value="Готово">
     	</div>

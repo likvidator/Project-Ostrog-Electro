@@ -81,6 +81,11 @@ $all_dat_tr_vol=all_dates_conclusion($id_tr_vol,3);
 					Контактный телефон: '.$row1[0]['Phone_object'].';
 					<br>Источник питания: '.$row1[0]['Source_of_power'].';  </br>
 					Класс напряжения: '.$row1[0]['Voltage_class'].';
+
+					<br>Балансовая пренадлежность: '.$row1[0]['Balanse_state'].';  </br>
+					Номер ТУ: '.$row1[0]['Number_TU'].'; 
+					Дата ТУ: '.$row1[0]['Date_TU'].';  
+					<br>Примечание: '.$row1[0]['Description'].';  </br>
 					</div>
 
 					<a href="..\View\del_object.php?id_obj='.$id_obj.'&user_id='.$user_id.'"> Удалить объект</a>

@@ -107,7 +107,7 @@
 	{
 		include_once "../Controller/connection.php";
 		$connect = get_connect();
-		$object=(mysqli_query($connect,"select id_object,Owner_FIO,Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class 
+		$object=(mysqli_query($connect,"select *
 			FROM object WHERE Obj_Cons_id=".$user_id.";"));
 			//echo "select id_object,Owner_FIO,Renter_FIO,Name_object,Mailing_address,Phone_object,Source_of_power,Voltage_class 
 			//FROM Object WHERE Obj_Cons_id=".$user_id.";";

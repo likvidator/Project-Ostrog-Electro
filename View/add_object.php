@@ -51,18 +51,42 @@ $row=cust_conclusion($_GET["user_id"]);
     		<label for="name">Класс напряжения</label>
     		<input type="text" name="Voltage_class" class="form-control">
   		</div>
+
+       <div class="form-group">
+        <label for="name">Балансовая пренадлежность</label>
+        <input type="text" name="Balanse_state" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Номер ТУ</label>
+        <input type="text" name="Number_TU" class="form-control" >
+      </div>
+
+      <div class="form-group">
+        <label for="name">Дата ТУ</label>
+        <input type="date" name="Date_TU" class="form-control" >
+      </div>
+
+      <div class="form-group">
+        <label for="name">Примечание</label>
+        <input type="text" name="Description" class="form-control" >
+      </div>
+
+
 		<div class="button-container">
-      		<input autofocus class="btn btn-success" type="submit" value="Добавить">
+      		<input autofocus class="btn btn-success" type="submit" >
       	</div>
-      	<input type="hidden" name="user_id" value = "<?php echo $user_id;?>">
+           <div>
+            <input type="hidden" name="user_id" value = <?php echo (int) $user_id;?> >
+          </div>
 	</form>
 </div>
 
 <?php
-    if(!empty($_POST['Owner_FIO']) AND !empty($_POST['Renter_FIO']) AND !empty($_POST['Name_object']) AND !empty($_POST['Mailing_address'] ) AND !empty($_POST['Phone_object']) AND !empty($_POST['Source_of_power']) AND !empty($_POST['Voltage_class']) AND !empty($_POST["user_id"]))
+    if(!empty($_POST['Owner_FIO']) AND !empty($_POST['Renter_FIO']) AND !empty($_POST['Name_object']) AND !empty($_POST['Mailing_address'] ) AND !empty($_POST['Phone_object']) AND !empty($_POST['Source_of_power']) AND !empty($_POST['Voltage_class']) AND !empty($_POST["user_id"]) AND !empty($_POST["Balanse_state"]) AND !empty($_POST["Number_TU"]) AND !empty($_POST["Date_TU"]) AND !empty($_POST["Description"]))
     {
-        $result =  add_object(($_POST['Owner_FIO']),($_POST['Renter_FIO']),($_POST['Name_object']),($_POST['Mailing_address']),($_POST['Phone_object']),($_POST['Source_of_power']),($_POST['Voltage_class']),($_POST['user_id']));
-		// echo result;
+        $result =  add_object(($_POST['Owner_FIO']),($_POST['Renter_FIO']),($_POST['Name_object']),($_POST['Mailing_address']),($_POST['Phone_object']),($_POST['Source_of_power']),($_POST['Voltage_class']),($_POST["user_id"]), ($_POST["Balanse_state"]) , ($_POST["Number_TU"]) , ($_POST["Date_TU"]), ($_POST["Description"]));
+		    echo result;
 		$user_id = ($_POST['user_id']);
         switch ($result)
          {
@@ -82,4 +106,6 @@ $row=cust_conclusion($_GET["user_id"]);
             
          }     
     }
+
+    
 ?>

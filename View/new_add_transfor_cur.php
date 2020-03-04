@@ -171,7 +171,7 @@ if ($_POST['Type_fase']=="1")
             case "Add_tr_cur":
 
             $id_tr_cur=$result2[1];
-             $user_id = $result2[2];
+            $user_id = $result2[2];
           
             if (!empty($_POST['L1_a']) AND !empty($_POST['L2_a']) AND !empty($_POST['I1_a']) AND !empty($_POST['I2_a']) AND !empty($_POST['Other_places_plomb_a']) AND !empty($id_tr_cur))
             {
